@@ -1,0 +1,179 @@
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAO TALKING</title>
+    <link rel="icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./css/carousel.css">
+    <!-- 自訂的css -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <!-- 導覽列 -->
+    <nav>
+        <div class="logo">
+            <img src="./images/pet-logo.svg" alt="Mao Talking Logo"> <!-- 添加你的 logo 圖片 -->
+        </div>
+        <ul>
+            <li><a href="#">服務項目</a></li>
+            <li><a href="#">案例分享</a></li>
+            <li><a href="#">常見問題</a></li>
+            <li><a href="#">聯絡我們</a></li>
+        </ul>
+    </nav>
+
+    <!-- banner區 -->
+    <div class="hero">
+        <div class="hero-text">
+            <!-- span class="quote-mark">“</span> -->讓我們聽見牠們的故事<!-- <span class="quote-mark">”</span> -->
+        </div>
+    </div>
+
+    <!-- 關於我們區 -->
+
+    <section class="about-us">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>ABOUT US</h2>
+                <p>
+                    成立專業團隊，整合市面上的溝通師們，<br>
+                    透過專業的寵物溝通技能，<br>
+                    打破語言的隔閡，成為心靈橋梁，<br>
+                    實現真摯的情感連結，<br>
+                    拉近飼主與寵物間的距離。
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="./images/aboutus.jpg" alt="Team working image"> <!-- 替換成實際圖片路徑 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 團隊區 -->
+
+    
+
+    <!-- 換圖輪播區-->
+    <!-- <section id="banner"></section> -->
+    <section id="banner">
+        <div class="content-slider">
+            <!-- 讓js換圖片的切換器(隱藏狀態) -->
+            <input type="radio" id="banner1" class="sec-1-input" name="banner" checked>
+            <input type="radio" id="banner2" class="sec-1-input" name="banner">
+            <input type="radio" id="banner3" class="sec-1-input" name="banner">
+            <input type="radio" id="banner4" class="sec-1-input" name="banner">
+            <input type="radio" id="banner5" class="sec-1-input" name="banner">
+            <!-- 輪播圖區 -->
+            <div class="slider">
+                <!-- 第一張 -->
+                <div id="top-banner-1" class="banner">
+                    <div class="banner-inner-wrapper">
+                        <h2>FEED BACK</h2>
+                        <h1>真的感謝小熊老師，讓我家旺仔<br>
+                            不再整天汪汪叫，也不會再亂咬<br>
+                            家人，也不會再鬱鬱寡歡了。<br>
+                            自從溝通後，旺仔每天都很願意<br>
+                            跟家人一起出去玩飛盤。
+                            <br>
+                            -新北王小姐
+                        </h1>
+                        <!-- <div class="line"></div> -->
+                        <div class="learn-more-button"><a href="#section-2">了解更多</a></div>
+                    </div>
+                </div>
+                <!-- 第二張 -->
+                <div id="top-banner-2" class="banner">
+                    <div class="banner-inner-wrapper">
+                        <h2>FEED BACK</h2>
+                        <h1>Great<br>MoGo</h1>
+                        <!-- <div class="line"></div> -->
+                        <div class="learn-more-button"><a href="#section-4">了解更多</a></div>
+                    </div>
+                </div>
+                <!-- 第三張 -->
+                <div id="top-banner-3" class="banner">
+                    <div class="banner-inner-wrapper">
+                        <h2>FEED BACK</h2>
+                        <h1>We Are<br>MoGo</h1>
+                        <!-- <div class="line"></div> -->
+                        <div class="learn-more-button"><a href="#section-6">了解更多</a></div>
+                    </div>
+                </div>
+
+                <!-- 第四張 -->
+                <div id="top-banner-4" class="banner">
+                    <div class="banner-inner-wrapper">
+                        <h2>FEED BACK</h2>
+                        <h1>Welcome<br>to MoGo</h1>
+                        <!-- <div class="line"></div> -->
+                        <div class="learn-more-button"><a href="#main-footer">了解更多</a></div>
+                    </div>
+                </div>
+                <!-- 第5張 -->
+                <div id="top-banner-5" class="banner">
+                    <div class="banner-inner-wrapper">
+                        <h2>FEED BACK</h2>
+                        <h1>Welcome<br>to MoGo</h1>
+                        <!-- <div class="line"></div> -->
+                        <div class="learn-more-button"><a href="#main-footer">了解更多</a></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 輪播張數提示器 -->
+            <nav>
+                <div class="controls">
+                    <label for="banner1">
+                        <!-- 進度條 -->
+                        <span class="progressbar">
+                            <span class="progressbar-fill"></span>
+                        </span>
+                        <!-- 文字區 -->
+                        <!--可刪除 <span>01</span> Intro -->
+                    </label>
+                    <label for="banner2">
+                        <span class="progressbar">
+                            <span class="progressbar-fill"></span>
+                        </span>
+                        <!-- <span>02</span> Work -->
+                    </label>
+                    <label for="banner3">
+                        <span class="progressbar">
+                            <span class="progressbar-fill"></span>
+                        </span>
+                        <!-- <span>03</span> About -->
+                    </label>
+
+                    <label for="banner4">
+                        <span class="progressbar">
+                            <span class="progressbar-fill"></span>
+                        </span>
+                        <!-- <span>04</span> Contacts -->
+                    </label>
+
+                    <label for="banner5">
+                        <span class="progressbar">
+                            <span class="progressbar-fill"></span>
+                        </span>
+                        <!-- <span>05</span> Contacts -->
+                    </label>
+
+
+
+
+
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- 官方cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- 換圖輪播 -->
+    <script src="./js/carousel.js"></script>
+</body>
+
+</html>

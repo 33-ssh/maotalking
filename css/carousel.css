@@ -46,6 +46,10 @@
     /* 改 */
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
     box-sizing: border-box;
+    /* 新增 */
+    text-align: center; /* 确保文字居中 */
+    padding: 20px;
+
     /* text-shadow: 0 0  10px var(--alpha-b-20); */
 }
 
@@ -55,13 +59,21 @@
     font-weight: 400;
     font-size: 2.5em;
     text-transform: none;
+    /*新增 */
+    color: white; /* 确保文字与背景对比强烈 */
 }
 
 #banner .content-slider .slider .banner .banner-inner-wrapper h1 {
     font-family: 'Noto Sans TC', sans-serif; /* 改 */
-    font-size: 1.2rem; /* 改 */
-    line-height: 95%;
-    
+    font-size: 1rem; /* 改 */
+    /* line-height: 95%; */
+    /* 改 */
+    line-height: 1.5; /* 调整行距 */
+    /* 新增 */
+    color: white; /* 确保文字可读性 */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* 增加文字阴影，提升可读性 */
+    margin-bottom: 20px; /* 调整底部间距 */
+
 }
 
 
@@ -75,8 +87,11 @@
 }
 
 #banner .content-slider .slider .banner .banner-inner-wrapper .learn-more-button {
-    padding-bottom: 5em;
-    z-index: 15 !important;
+    /* padding-bottom: 5em;
+    z-index: 15 !important; */
+    /* 改 */
+    margin-top: 20px;
+    z-index: 15;
 }
 
 #banner .content-slider .slider .banner .banner-inner-wrapper .learn-more-button a {
@@ -90,6 +105,10 @@
     color: #fff;
     text-transform: uppercase;
     border: 0.1875em solid #fff;
+    /* 新增 */
+    border-radius: 99px; /* 给按钮增加圆角 */
+    transition: all 0.3s;
+    
 }
 
 #banner .content-slider .slider .banner .banner-inner-wrapper .learn-more-button a:hover {
@@ -130,6 +149,7 @@
     width: 100%;
     z-index: 10;
     text-align: center;
+    background-color: aqua;
 }
 
 #banner .content-slider nav .controls {
