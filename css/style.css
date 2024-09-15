@@ -9,6 +9,7 @@
     --primary-3: #342628;
     --primary-4: #788402;
     --primary-5: #FFFFFF;
+    --primary-6: #FEAA00;
 
 
     /* 文字 */
@@ -68,7 +69,7 @@ a {
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Noto Sans TC, sans-serif;
 }
 
 /* 導覽列樣式 */
@@ -77,11 +78,16 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: transparent;
-    padding: 20px;
-    position: absolute;
+    padding: 10 80px;
+    /* 調整 padding 大小來縮小區域 */
+    position: fixed;
+    /* 確保導覽列固定在頂部 */
     width: 100%;
     top: 0;
     z-index: 100;
+    transition: background-color 0.3s, color 0.3s;
+    /* 平滑過渡背景色變化 */
+
 }
 
 nav ul {
@@ -99,13 +105,33 @@ nav ul li a {
     color: var(--primary-5);
     text-decoration: none;
     font-size: 1rem;
-    font-weight: bold;
-    padding: 20px;
+    font-weight: 700;
+    /* padding: 20px; */
+    padding: 10px 15px;
+    /* 確保文字不會偏離太多 */
+    letter-spacing: .2rem;
+}
+
+/* 滾動後的導覽列樣式 */
+nav.scrolled {
+    background-color: var(--primary-1);
+    /* 滾動後變成橘色背景 */
+}
+
+nav.scrolled ul li a {
+    color: var(--primary-5);
+    /* 滾動後字體變成白色 */
 }
 
 .logo img {
-    width: 100%
-}
+    width: 160px;
+    /* 調整 Logo 的寬度 */
+    height: auto;
+    /* 保持長寬比例 */
+    max-height: 90px;
+    /* 最大高度設為 90px，保證不超過導覽列 */
+    margin-left: 20px; /* 調整 LOGO 左側距離*/
+} 
 
 /* banner區塊樣式 */
 .hero {
@@ -120,17 +146,21 @@ nav ul li a {
 .hero-text {
     position: absolute;
     bottom: 10%;
-    left:5%;
+    left: 5%;
     color: var(--primary-5);
     font-size: 2rem;
     font-weight: bold;
     letter-spacing: .3rem;
     padding: 10px;
+    margin: 80px;
+    
 }
+
 /* 關於我們區 */
 .about-us {
-    padding: 50px 20px;
-    background-color: var(--primary-2); /* 根據你的需求調整背景顏色 */
+    padding: 50px 80px;
+    background-color: var(--primary-2);
+    /* 根據你的需求調整背景顏色 */
 }
 
 .about-container {
@@ -147,14 +177,29 @@ nav ul li a {
 }
 
 .about-text h2 {
+    margin-left: 80px; /* 調整文字左側距離 */
     font-size: 3.5rem;
-    color: var(--primary-1); /* 替換成你的主題顏色 */
-    font-weight: bold;
+    color: var(--primary-1);
+    /* 替換成你的主題顏色 */
+    font-weight: 700;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
+}
+
+.about-text h3 {
+    margin-left: 80px; /* 調整文字左側距離 */
+    font-size: 3.5rem;
+    color: var(--primary-1);
+    /* 替換成你的主題顏色 */
+    font-weight: 700;
+    letter-spacing: 2px;
+    /* text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25); */
+    opacity: 0.2;
+    /* 調整透明度，使字體變淡 */
 }
 
 .about-text p {
+    margin-left: 80px; /* 調整文字左側距離 */
     font-size: 18px;
     line-height: 1.8;
     color: var(--primary-3);
@@ -166,11 +211,14 @@ nav ul li a {
     max-width: 500px;
 }
 
+
 .about-image img {
     width: 100%;
     height: auto;
-    border-radius: 15px; /* 讓圖片的邊角圓潤 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 給圖片添加陰影效果 */
+    border-radius: 15px;
+    /* 讓圖片的邊角圓潤 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* 給圖片添加陰影效果 */
 }
 
 @media (max-width: 768px) {
@@ -187,4 +235,405 @@ nav ul li a {
     .about-image {
         max-width: 100%;
     }
+}
+
+
+/* 團隊區 */
+
+.our-team {
+    background-color: var(--primary-2);
+    padding: 50px 20px;
+    position: relative;
+    /* 確保背景 SVG 可以相對定位 */
+
+      /* 調整背景圖片 */
+    background-image: url('../images/bg-light.svg');
+    background-size: 100%; /* 調整背景圖像的大小，可以根據需求調整為更小或更大 */
+    background-position: right 0 bottom  410px; /* 調整背景圖像的位置，讓它靠右和底部 */
+    background-repeat: no-repeat; /* 確保背景圖像不會重複 */
+}
+
+/* 團隊標題樣式 */
+.team-header {
+    max-width: 1320px;
+    /* 控制標題寬度，總寬度減去80px間距 */
+    margin: 0 auto 50px auto;
+    /* 增加 margin-top 為 60px */
+    padding-top: 120px; /* 單獨移動標題 */
+
+    padding-right: 80px;
+    /* 確保文字內容離右側80px */
+}
+
+/* 團隊標題樣式 */
+.team-header h2 {
+    font-size: 3rem;
+    color: var(--primary-1);
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-align: right;
+    text-shadow: 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.team-header p {
+    font-size: 1.2rem;
+    color: var(--primary-3);
+    letter-spacing: 1px;
+    text-align: right;
+}
+
+
+/* 團隊成員區域 */
+.team-member-1,
+.team-member-3 {
+    display: flex;
+    flex-direction: column;
+    /* 將內容從併排改為垂直排列 */
+    align-items: center;
+    /* 圖片和文字居中對齊 */
+    position: relative;
+    max-width: 600px;
+    /* 控制區塊寬度 */
+}
+
+/* 父容器宽度设定 */
+.team-member-2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* 將內容從併排改為垂直排列 */
+    align-items: flex-end;
+    /* 將內容向右對齊 */
+    max-width: 100%;
+    /* 确保父容器占据整个页面宽度 */
+    margin-right: 80px;
+    /* 添加 margin-right，防止內容緊貼右側 */
+    /* z-index: 2; 確保成員圖片和文字在 SVG 前面 */
+}
+
+
+
+/* 圖片區域 */
+
+.member-photo-1 {
+    display: flex;
+    justify-content: flex-start;
+    /* 確保圖片靠左 */
+}
+
+.member-photo-1 img {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    /* 確保圖片填充且不變形 */
+    border-radius: 20px 560px 560px 20px;
+    /* D型效果 */
+    margin-top: -240px;
+    box-shadow: 30px 30px 0px var(--primary-1);
+    /* 添加陰影 */
+}
+
+/* 圖片區域容器 */
+
+
+.member-photo-2 {
+
+    display: flex;
+    justify-content: flex-end;
+    /* 確保圖片靠右 */
+}
+
+.member-photo-2 img {
+
+    position: relative;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    /* 確保圖片填充且不變形 */
+    border-radius: 560px 20px 20px 560px;
+    margin-top: -220px;
+    box-shadow: -30px 30px 0px var(--primary-3);
+    /* 添加陰影 */
+    z-index: 2;
+    
+    /* 確保圖片位於最上層 */
+}
+
+.member-photo-3 {
+
+    display: flex;
+    justify-content: flex-start;
+    /* 確保圖片靠左 */
+}
+
+.member-photo-3 img {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    /* 確保圖片填充且不變形 */
+    border-radius: 20px 560px 560px 20px;
+    margin-top: -180px;
+    box-shadow: 30px 30px 0px var(--primary-4);
+    /* 添加陰影 */
+
+}
+
+
+/* 文字區域 */
+.member-info-1 , .member-info-2 ,.member-info-3{
+    width: 300px;
+    /* 文字內容與圖片同寬 */
+    margin-left: 20px;
+    /* 與圖片之間留空 */
+    text-align: left;
+}
+
+
+.member-info-1 h3 , .member-info-2 h3 , .member-info-3 h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #342628;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    letter-spacing: .4rem;
+}
+
+
+.member-info-1 p , .member-info-2 p , .member-info-3 p  {
+    font-size: 1rem;
+    color: #342628;
+    line-height: 1.8;
+    letter-spacing: .2rem;
+    max-width: 300px;
+    /* 控制文字寬度與圖片一致 */
+}
+
+/* Service 區 */
+/* 服務區域樣式 */
+.service-section {
+    padding: 50px 20px;
+    background-color: var(--primary-2);
+    text-align: center;
+}
+
+.service-section h2 {
+    font-size: 3rem;
+    color: var(--primary-1);
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 50px;
+    text-shadow: 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 整個服務區容器樣式 */
+.service-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 左側和右側的對話框區域 */
+.service-left, .service-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* 對話框樣式 */
+.speech-bubble {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.speech-bubble img {
+    width: 150px; /* 調整對話框圖像大小 */
+    height: auto;
+}
+
+.speech-bubble p {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--primary-4);
+    font-weight: 700;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+/* 中央圖片區域樣式 */
+.service-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dog-image {
+    width: 300px;
+    height: auto;
+    border-radius: 50%; /* 圓形圖片效果 */
+    object-fit: cover;
+    background-color: var(--primary-1);
+    padding: 20px;
+}
+
+/* 了解更多按鈕 */
+.service-center .learn-more-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 30px;
+    border: 2px solid var(--primary-1);
+    color: var(--primary-1);
+    text-transform: uppercase;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.service-center .learn-more-button:hover {
+    background-color: var(--primary-1);
+    color: var(--primary-5);
+}
+
+/* Contact Us 區 */
+.contact-us {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../images/contactus.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 80px;
+    /* 調整兩側的 padding 為 80px */ 
+    /* 新增 */
+    display: flex;
+    justify-content: space-between;
+    /* 確保標題和內容左右分開 */
+    align-items: center; 
+    text-align: left;
+    position: relative;
+    /* 增加相對定位，讓內容分佈更加靈活 */
+}
+
+.contact-us .contact-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* 讓內容和按鈕靠左 */
+    z-index: 1;
+}
+
+
+.contact-us .contact-content h2 {
+    color: var(--primary-5);
+    font-size: 3.5rem;
+    letter-spacing: 0.2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
+    /* 保留標題陰影 */
+    flex: 1;
+    text-align: right;
+    /* 讓文字默認靠右 */
+    margin-left: auto;
+    /* 確保標題在右側 */
+    z-index: 1;
+}
+
+.contact-us .contact-content p {
+    color: var(--primary-5);
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    font-weight: 400;
+    text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* 調整按鈕位置 */
+.contact-us .learn-more-button {
+    display: inline-block;
+    margin-top: 20px;
+    /* 增 */
+    padding: 0.5em 2em;
+    text-align: center;
+    border: 0.1875rem solid var(--primary-5);
+    color: var(--primary-5);
+    text-transform: uppercase;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 99px;
+    transition: background-color 0.3s ease;
+    /* 增 */
+    align-self: flex-start;
+    /* 確保按鈕靠左 */
+    width: auto;
+    /* 防止按鈕過寬 */
+    z-index: 1;
+
+}
+
+.contact-us .learn-more-button:hover {
+    background-color: var(--primary-1);
+    border: var(--primary-1);
+}
+
+/* Footer 區 */
+.footer {
+    background-color: var(--primary-1);
+    /* 橘色背景 */
+    padding: 40px 20px;
+    color: var(--primary-5);
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.footer-links li {
+    margin: 0 15px;
+}
+
+.footer-links li a {
+    color: var(--primary-5);
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: .2rem;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+    font-size: 1rem;
+    letter-spacing: .2rem;
+    text-align: left;
+}
+
+.footer-copyright {
+    font-size: 0.8rem;
+    margin-top: 20px;
+    letter-spacing: .2rem;
 }

@@ -40,39 +40,59 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
     height: 100%;
     /* padding-top: 6em; */
     /* 改 */
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
     box-sizing: border-box;
     /* 新增 */
-    text-align: center; /* 确保文字居中 */
-    padding: 20px;
+    text-align: center;
+    /* 确保文字居中 */
+    /* padding: 20px; */
+    position: relative;
+    /* 讓子元素可以絕對定位 */
 
     /* text-shadow: 0 0  10px var(--alpha-b-20); */
 }
 
 #banner .content-slider .slider .banner .banner-inner-wrapper h2 {
     padding-bottom: 0.3em;
-    font-family: 'Noto Sans TC', sans-serif;/* 改 */
-    font-weight: 400;
-    font-size: 2.5em;
-    text-transform: none;
+    font-family: 'Noto Sans TC', sans-serif;
+    /* 改 */
+    font-weight: bold;
+    font-size: 3.5rem;
+    /* text-transform: none; */
     /*新增 */
-    color: white; /* 确保文字与背景对比强烈 */
+    color: var(--primary-5);
+    /* 确保文字与背景对比强烈 */
+    text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
+    /* 增加文字阴影，提升可读性 */
+    /* padding-bottom:100px; */
+    position: absolute;
+    top: 20%;
+    /* 這裡調整標題距離容器頂部的距離，數值可調整 */
+    transform: translateY(-50%);
+    /* 使標題在其自身高度中垂直居中 */
 }
 
-#banner .content-slider .slider .banner .banner-inner-wrapper h1 {
-    font-family: 'Noto Sans TC', sans-serif; /* 改 */
-    font-size: 1rem; /* 改 */
+#banner .content-slider .slider .banner .banner-inner-wrapper h3 {
+    font-family: 'Noto Sans TC', sans-serif;
+    /* 改 */
+    font-size: 1rem;
+    /* 改 */
     /* line-height: 95%; */
     /* 改 */
-    line-height: 1.5; /* 调整行距 */
+    line-height: 1.5;
+    letter-spacing: .2rem;
+    /* 调整行距 */
     /* 新增 */
-    color: white; /* 确保文字可读性 */
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* 增加文字阴影，提升可读性 */
-    margin-bottom: 20px; /* 调整底部间距 */
+    color: var(--primary-5);
+    /* 确保文字可读性 */
+    text-align: left;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* 增加文字阴影，提升可读性 */
+    margin-bottom: 20px;
+    /* 调整底部间距 */
 
 }
 
@@ -83,15 +103,14 @@
     width: 4em;
     height: 0.1875em;
     margin: 2.5em auto;
-    background: #fff;
+    background: var(--primary-5)
 }
 
 #banner .content-slider .slider .banner .banner-inner-wrapper .learn-more-button {
-    /* padding-bottom: 5em;
-    z-index: 15 !important; */
-    /* 改 */
-    margin-top: 20px;
-    z-index: 15;
+    /* padding-bottom: 5em; */
+    z-index: 15 !important;
+
+
 }
 
 #banner .content-slider .slider .banner .banner-inner-wrapper .learn-more-button a {
@@ -100,20 +119,26 @@
     text-align: center;
     /* font-family: Montserrat, sans-serif; */
     /* 改 */
-    font-family: 'Noto Sans TC', sans-serif; 
-    font-size: 0.875em;
-    color: #fff;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-5);
     text-transform: uppercase;
-    border: 0.1875em solid #fff;
+    border: 0.1875rem solid var(--primary-5);
     /* 新增 */
-    border-radius: 99px; /* 给按钮增加圆角 */
+    border-radius: 99px;
+    /* 给按钮增加圆角 */
     transition: all 0.3s;
-    
+    letter-spacing: .2rem;
+
+
+
 }
 
 #banner .content-slider .slider .banner .banner-inner-wrapper .learn-more-button a:hover {
-    color: gray;
-    border-color:gray;
+    color: var(--primary-5);
+    background-color: var(--primary-1);
+    border-color:var(--primary-1);
     transition: 0.3s;
 }
 
@@ -123,33 +148,33 @@
 }
 
 #banner .content-slider .slider #top-banner-2 {
-    background: url('../images/banner_2.jpg') no-repeat center center;
+    background: url('../images/feedback-2.jpg') no-repeat center center;
     background-size: cover;
 }
 
 #banner .content-slider .slider #top-banner-3 {
-    background: url('../images/banner_3.jpg') no-repeat center center;
+    background: url('../images/feedback-3.jpg') no-repeat center center;
     background-size: cover;
 }
 
 #banner .content-slider .slider #top-banner-4 {
-    background: url('../images/banner_4.jpg') no-repeat center center;
+    background: url('../images/feedback-4.jpg') no-repeat center center;
     background-size: cover;
 }
 
 #banner .content-slider .slider #top-banner-5 {
-    background: url('../images/banner_5.jpg') no-repeat center center;
+    background: url('../images/feedback-5.jpg') no-repeat center center;
     background-size: cover;
 }
 
 #banner .content-slider nav {
     position: absolute;
-    /* bottom: 0.5em; */
-    top:auto;
+    bottom: 0em;
+    top: auto;
     width: 100%;
     z-index: 10;
     text-align: center;
-    background-color: aqua;
+    background-color: transparent;
 }
 
 #banner .content-slider nav .controls {
@@ -157,14 +182,17 @@
     width: 70%;
     margin: 0 auto;
     /* font-family: Montserrat, sans-serif; */
-    font-family: 'Noto Sans TC', sans-serif; /* 改 */
-    color: #fff;
+    font-family: 'Noto Sans TC', sans-serif;
+    /* 改 */
+    color: var(--primary-5);
+
 }
 
 #banner .content-slider nav .controls label {
     position: relative;
     display: inline-block;
-    width: 10%; /* 改 */
+    width: 10%;
+    /* 改 */
     height: 3.5em;
     overflow: hidden;
     margin: 0 1em;
@@ -172,9 +200,10 @@
     text-align: left;
     text-transform: uppercase;
     /* font-family: Montserrat, sans-serif; */
-    font-family: 'Noto Sans TC', sans-serif; /* 改 */
+    font-family: 'Noto Sans TC', sans-serif;
+    /* 改 */
     font-size: 1em;
-    color: white;
+    color: var(--primary-5);
     font-weight: 400;
     cursor: pointer;
     transition: all 0.3s;
@@ -182,19 +211,14 @@
 
 
 
-
-
-
-
-
 #banner .content-slider nav .controls label .progressbar {
     position: absolute;
     /* 改 */
-    top:0;
+    top: 0;
     left: 0;
     height: 3px;
     width: 100%;
-    background: white;
+    background: var(--primary-5);
     z-index: 100;
 }
 
@@ -203,7 +227,7 @@
     width: inherit;
     height: inherit;
     margin-left: -100%;
-    background: white;
+    background: var(--primary-1)
 }
 
 #banner .content-slider nav .controls label span {
@@ -212,7 +236,7 @@
 }
 
 #banner .content-slider nav .controls label:hover {
-    color: gray;
+    color: var(--primary-1);
 }
 
 #banner .content-slider #banner1:checked~.slider #top-banner-1,
