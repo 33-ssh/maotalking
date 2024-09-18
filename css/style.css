@@ -72,6 +72,7 @@ body {
     font-family: "Noto Sans TC", sans-serif;
 }
 
+
 #gotop {
     position: fixed;
     right: 20px;
@@ -85,8 +86,9 @@ body {
     /* background-color: var(--lesser-5); */
     border-radius: 50%;
     padding: 5px;
-    
-    cursor: pointer; /* 游標樣式:手指 */
+
+    cursor: pointer;
+    /* 游標樣式:手指 */
 }
 
 /* 導覽列樣式 */
@@ -223,7 +225,7 @@ nav.active ul li a {
 
 /* 漢堡按鈕的動畫效果 */
 nav.active .hamburger span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 10px);
+    transform: rotate(45deg) translate(5px, 11px);
 }
 
 nav.active .hamburger span:nth-child(2) {
@@ -231,7 +233,7 @@ nav.active .hamburger span:nth-child(2) {
 }
 
 nav.active .hamburger span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -10px);
+    transform: rotate(-45deg) translate(5px, -11px);
 }
 
 /* 滾動後的導覽列樣式 */
@@ -259,7 +261,7 @@ nav.scrolled {
     background-image: url('../images/banner.jpg');
     background-size: cover;
     background-position: center;
-    animation: zoomEffect 10s ease-in-out infinite;
+    animation: zoomEffect 5s ease-in-out infinite;
     /* 將動畫效果應用於背景 */
     z-index: -1;
     /* 確保背景在所有內容後面 */
@@ -448,7 +450,7 @@ nav.scrolled {
 
     .about-image {
         width: 100%;
-        max-width: 100%;
+        max-width: 80%;
         margin: 20px 0;
         margin-right: 0;
         z-index: 2;
@@ -499,6 +501,9 @@ nav.scrolled {
     /* 讓容器在寬螢幕上居中 */
     padding: 0 40px;
     /* 增加左右內邊距，避免內容貼邊 */
+    display: block;
+    /* 讓容器以區塊形式顯示，防止元素擠壓 */
+
 }
 
 /* 團隊標題樣式 */
@@ -543,6 +548,10 @@ nav.scrolled {
     position: relative;
     max-width: 600px;
     /* 控制區塊寬度 */
+    margin-bottom: 40px;
+    /* 讓每個成員區塊之間有間距 */
+    text-align: center;
+    /* 讓文字居中對齊 */
 }
 
 /* 父容器宽度设定 */
@@ -558,6 +567,8 @@ nav.scrolled {
     margin-right: 80px;
     /* 添加 margin-right，防止內容緊貼右側 */
     /* z-index: 2; 確保成員圖片和文字在 SVG 前面 */
+    margin-bottom: 40px;
+    /* 讓每個成員區塊之間有間距 */
 }
 
 
@@ -664,15 +675,121 @@ nav.scrolled {
     /* 控制文字寬度與圖片一致 */
 }
 
+/* 1100px以下的響應式調整 */
+@media (max-width: 1100px) {
+
+    .team-container {
+        display: block;
+        padding: 0;
+    }
+
+    .team-header {
+
+        margin: 0 auto 250px auto;
+        /* 增加 margin-top 為 60px */
+        padding-top: 10px;
+        /* 單獨移動標題 */
+
+        padding-right: 80px;
+        /* 確保文字內容離右側80px */
+    }
+
+
+    /* 圖片和文字垂直排列 */
+    .team-member-1,
+    .team-member-2,
+    .team-member-3 {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    /* 調整圖片大小 */
+    .team-member-1 img,
+    .team-member-2 img,
+    .team-member-3 img {
+        width: 230px;
+        height: 230px;
+    }
+
+    .member-photo-1 img {
+        margin-right: 100px;
+    }
+
+    .member-photo-3 img {
+        margin-right: 100px;
+    }
+}
+
+/* 768px以下的響應式調整 */
+@media (max-width: 768px) {
+
+    .our-team {
+        background-position: right 0 bottom 610px;
+    }
+
+    .team-header h2 {
+        font-size: 2.5rem;
+    }
+
+    .team-member-1 img,
+    .team-member-2 img,
+    .team-member-3 img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .team-member-2 img {
+        margin-top: 10px;
+    }
+
+    .team-member-3 img {
+        margin-top: 10px;
+    }
+
+    .team-member-1 p,
+    .team-member-2 p,
+    .team-member-3 p {
+        font-size: 0.9rem;
+    }
+}
+
+/* 480px以下的手機模式 */
+@media (max-width: 390px) {
+    .our-team {
+        background-size: 100%;
+        background-position: right 0 bottom 560px;
+    }
+
+    .team-header h2 {
+        font-size: 2rem;
+    }
+
+    .team-member-1 img,
+    .team-member-2 img,
+    .team-member-3 img {
+        width: 150px;
+        height: 150px;
+
+    }
+
+    .team-member-1 p,
+    .team-member-2 p,
+    .team-member-3 p {
+        font-size: 0.8rem;
+    }
+}
+
 /* Service 服務區 */
-.service-section {
+#service-section {
     padding: 50px 20px;
     background-color: var(--primary-2);
     text-align: center;
     position: relative;
+
 }
 
-.service-section h2 {
+#service-section h2 {
     font-size: 3.5rem;
     color: var(--primary-1);
     font-weight: 700;
@@ -709,6 +826,42 @@ nav.scrolled {
     position: relative;
     display: flex;
     align-items: center;
+
+}
+
+/* 定義背景圖縮放動畫 */
+@keyframes zoomEffect-1 {
+    0% {
+        transform: rotate(0) scale(1);
+        /* 初始大小 */
+    }
+
+    50% {
+        transform: rotate(25deg) scale(1.1);
+        /* 更明顯的放大 */
+    }
+
+    100% {
+        transform: rotate(0) scale(1);
+        /* 回到初始大小 */
+    }
+}
+
+@keyframes zoomEffect-2 {
+    0% {
+        transform: rotate(0) scale(1);
+        /* 初始大小 */
+    }
+
+    50% {
+        transform: rotate(-25deg) scale(1.1);
+        /* 更明顯的放大 */
+    }
+
+    100% {
+        transform: rotate(0) scale(1);
+        /* 回到初始大小 */
+    }
 }
 
 .speech-bubble img {
@@ -720,6 +873,7 @@ nav.scrolled {
 /* 左側對話框樣式 */
 .service-left .speech-bubble {
     position: absolute;
+    animation: zoomEffect-2 2s ease-in-out infinite;
 }
 
 /* 左側對話框進行翻轉 */
@@ -742,6 +896,7 @@ nav.scrolled {
 /* 右側對話框樣式 */
 .service-right .speech-bubble {
     position: absolute;
+    animation: zoomEffect-1 2s ease-in-out infinite;
 }
 
 .bubble-right-1 {
@@ -1169,7 +1324,7 @@ nav.scrolled {
 }
 
 /* FAQ 區 */
-.faq-section {
+#faq-section {
     padding: 50px 20px;
     background-color: var(--primary-2);
     text-align: center;
@@ -1181,13 +1336,19 @@ nav.scrolled {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    gap: 40px;
+    /* 調整間距 */
 }
 
+/* FAQ 左邊標題和按鈕 */
 .faq-left {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: left;
+    /* 修改：置中 */
+    text-align: center;
+    /* 修改：置中 */
+    width: 20%;
 }
 
 .faq-left h2 {
@@ -1220,57 +1381,115 @@ nav.scrolled {
     color: var(--primary-5);
 }
 
+/* FAQ 中間和右邊的圖像 */
+.faq-center,
 .faq-right {
-    display: flex;
-    gap: 30px;
-}
-
-.faq-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    width: 30%;
 }
 
 .faq-item img {
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    /* 調整：圖片滿版 */
+    height: auto;
     object-fit: cover;
     border-radius: 20px;
 }
 
 .faq-item p {
     margin-top: 10px;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--primary-3);
     font-weight: 700;
+    letter-spacing: .2rem;
 }
 
 /* RWD 調整 */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .faq-container {
         flex-direction: column;
+        justify-content: center;
         align-items: center;
         gap: 20px;
     }
 
+    .faq-left,
+    .faq-center,
     .faq-right {
-        flex-direction: column;
-        gap: 20px;
+        width: 80%;
+        text-align: center;
     }
 
     .faq-item img {
-        width: 200px;
-        height: 200px;
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+/* 手機模式調整 (768px 以下) */
+@media (max-width: 768px) {
+
+    /* 左中右的排列改為上下排列 */
+    .faq-container {
+        flex-direction: column;
+    }
+
+    /* 每個區塊寬度調整 */
+    .faq-left,
+    .faq-center,
+    .faq-right {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .faq-item img {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    /* 將圖片上下排列 */
+    .faq-center,
+    .faq-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .faq-item p {
+        margin-top: 10px;
+        font-size: 1rem;
     }
 
     .learn-more-button {
-        margin-top: 30px;
+        margin-top: 10px;
+    }
+}
+
+/* 手機極小螢幕調整 (390px 以下) */
+@media (max-width: 390px) {
+    .faq-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .faq-left,
+    .faq-center,
+    .faq-right {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .faq-item img {
+        width: 70%;
+    }
+
+    .learn-more-button {
+        margin-top: 10px;
     }
 }
 
 /* Contact Us 區 */
-.contact-us {
+#contact-us {
     background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../images/contactus.jpg');
     background-size: cover;
     background-position: center;
@@ -1289,7 +1508,7 @@ nav.scrolled {
 }
 
 /* 內部內容區域：限制最大寬度，讓內容居中 */
-.contact-us .contact-content {
+#contact-us .contact-content {
     max-width: 1200px;
     /* 設置最大寬度，根據需求調整 */
     width: 100%;
@@ -1306,7 +1525,7 @@ nav.scrolled {
 
 
 /* Contact Us 標題 */
-.contact-us .contact-content h2 {
+#contact-us .contact-content h2 {
     color: var(--primary-5);
     font-size: 3.5rem;
     letter-spacing: 0.2rem;
@@ -1322,7 +1541,7 @@ nav.scrolled {
     z-index: 1;
 }
 
-.contact-us .contact-content p {
+#contact-us .contact-content p {
     color: var(--primary-5);
     font-size: 1.2rem;
     letter-spacing: 0.2rem;
@@ -1335,7 +1554,7 @@ nav.scrolled {
 }
 
 /* 調整按鈕位置 */
-.contact-us .learn-more-button {
+#contact-us .learn-more-button {
     display: inline-block;
     margin-top: 20px;
     /* 增 */
@@ -1357,21 +1576,21 @@ nav.scrolled {
 
 }
 
-.contact-us .learn-more-button:hover {
+#contact-us .learn-more-button:hover {
     background-color: var(--primary-1);
     border: var(--primary-1);
 }
 
 /* 響應式設計：針對平板 */
 @media screen and (max-width: 1024px) {
-    .contact-us {
+    #contact-us {
         padding: 80px 20px;
         /* 減少內邊距 */
         flex-direction: column;
         /* 確保內容在小螢幕上垂直排列 */
     }
 
-    .contact-content {
+    #contact-content {
         max-width: 100%;
         /* 在較小螢幕上內容自適應寬度 */
         align-items: center;
@@ -1380,7 +1599,7 @@ nav.scrolled {
         /* 讓內容在水平方向上居中 */
     }
 
-    .contact-us .contact-content h2 {
+    #contact-us .contact-content h2 {
         font-size: 3rem;
         /* 調整標題字體大小 */
         text-align: center;
@@ -1391,12 +1610,12 @@ nav.scrolled {
         /* 確保標題充滿寬度 */
     }
 
-    .contact-us .contact-content p {
+    #contact-us .contact-content p {
         text-align: center;
         /* 將段落文字居中 */
     }
 
-    .contact-us .learn-more-button {
+    #contact-us .learn-more-button {
         font-size: 1.1rem;
         /* 調整按鈕字體大小 */
         align-self: center;
@@ -1406,18 +1625,18 @@ nav.scrolled {
 
 /* 響應式設計：針對手機 */
 @media screen and (max-width: 768px) {
-    .contact-us {
+    #contact-us {
         flex-direction: column;
         text-align: center;
         padding: 50px 20px;
         /* 減少兩側邊距 */
     }
 
-    .contact-content {
+    #contact-content {
         align-items: center;
     }
 
-    .contact-us .contact-content h2 {
+    #contact-us .contact-content h2 {
         font-size: 2.5rem;
         /* 調整標題字體大小 */
         text-align: center;
@@ -1425,11 +1644,11 @@ nav.scrolled {
         /* 移除 margin-left */
     }
 
-    .contact-us .contact-content p {
+    #contact-us .contact-content p {
         text-align: center;
     }
 
-    .contact-us .learn-more-button {
+    #contact-us .learn-more-button {
         font-size: 1rem;
         /* 調整按鈕字體 */
         align-self: center;
