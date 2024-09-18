@@ -72,6 +72,23 @@ body {
     font-family: "Noto Sans TC", sans-serif;
 }
 
+#gotop {
+    position: fixed;
+    right: 20px;
+    bottom: 320px;
+    z-index: 999;
+
+    width: 50px;
+    height: 50px;
+    /* 新增 */
+    display: none;
+    /* background-color: var(--lesser-5); */
+    border-radius: 50%;
+    padding: 5px;
+    
+    cursor: pointer; /* 游標樣式:手指 */
+}
+
 /* 導覽列樣式 */
 nav {
     display: flex;
