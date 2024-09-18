@@ -286,7 +286,7 @@
 }
 
 
-/* 小型設備
+/* 小型設備 */
 @media(max-width:640px){
     #banner .content-slider .slider .banner .banner-inner-wrapper h2{
         font-size: 2rem;
@@ -298,4 +298,4 @@
     #banner .content-slider nav .controls label{
         margin:0 5px;
     }
-} */
+} 

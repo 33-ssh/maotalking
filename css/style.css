@@ -118,6 +118,11 @@ nav.scrolled {
     /* 滾動後變成橘色背景 */
 }
 
+nav.scrolled ul {
+    background-color: var(--primary-1);
+    /* 導覽列的背景也變橘色 */
+}
+
 nav.scrolled ul li a {
     color: var(--primary-5);
     /* 滾動後字體變成白色 */
@@ -134,76 +139,203 @@ nav.scrolled ul li a {
     /* 調整 LOGO 左側距離*/
 }
 
+/* 漢堡按鈕樣式 */
+.hamburger {
+    display: none;
+    /* 初始隱藏 */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background-color: var(--primary-5);
+    margin: 4px;
+    transition: all 0.3s ease;
+}
+
+/* 響應式設計 */
+@media (max-width: 850px) {
+    nav ul {
+        display: none;
+        /* 在 850px 以下隱藏導航項 */
+    }
+
+    .hamburger {
+        display: flex;
+        /* 顯示漢堡按鈕 */
+    }
+
+    .logo img {
+        width: 160px;
+        /* 確保 logo 不會變小 */
+    }
+}
+
+/* 漢堡按鈕點擊後的效果 */
+nav.active ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    /* 頁面置頂時保持透明 */
+    justify-content: center;
+    /* 讓導航項目在垂直方向居中 */
+    align-items: center;
+    /* 讓導航項目在水平方向置中 */
+}
+
+nav.active.scrolled ul {
+    background-color: var(--primary-1);
+    /* 當滾動後漢堡打開時背景變橘色 */
+}
+
+nav.active ul li {
+    margin: 10px 0;
+}
+
+nav.active ul li a {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+}
+
+/* 漢堡按鈕的動畫效果 */
+nav.active .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 10px);
+}
+
+nav.active .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+
+nav.active .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -10px);
+}
+
+/* 滾動後的導覽列樣式 */
+nav.scrolled {
+    background-color: var(--primary-1);
+    /* 滾動後背景變橘色 */
+}
+
 /* banner區塊樣式 */
 .hero {
     position: relative;
     height: 100vh;
+    overflow: hidden;
+    /* 防止內容超出範圍 */
+
+}
+
+/* 專門控制背景圖片的hero-bg */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image: url('../images/banner.jpg');
-    /* 添加你的圖片路徑 */
     background-size: cover;
     background-position: center;
+    animation: zoomEffect 10s ease-in-out infinite;
+    /* 將動畫效果應用於背景 */
+    z-index: -1;
+    /* 確保背景在所有內容後面 */
 }
 
+
+/* 定義背景圖縮放動畫 */
+@keyframes zoomEffect {
+    0% {
+        transform: scale(1);
+        /* 初始大小 */
+    }
+
+    50% {
+        transform: scale(1.08);
+        /* 更明顯的放大 */
+    }
+
+    100% {
+        transform: scale(1);
+        /* 回到初始大小 */
+    }
+}
+
+
+/* hero-text 的設置，確保文字在圖片上正確顯示 */
 .hero-text {
     position: absolute;
+    /* 將文字設置為絕對定位 */
     bottom: 10%;
+    /* 固定在底部10%位置 */
     left: 5%;
-    color: var(--primary-5);
+    /* 固定在左邊5%位置 */
+    color: white;
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: .3rem;
     padding: 10px;
-    margin: 80px;
-
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    /* 確保文字在背景上層顯示 */
 }
+
+/* 響應式設計：調整小螢幕時的字體大小 */
+@media screen and (max-width: 440px) {
+    .hero-text {
+        font-size: 1.5rem;
+        /* 調整文字大小 */
+        letter-spacing: 0.1rem;
+        /* 減少字母間距，防止摺疊 */
+        padding: 5px;
+        /* 減少文字內邊距，確保適合小螢幕 */
+    }
+}
+
 
 /* 關於我們區 */
 .about-us {
-    padding: 50px 80px;
+    position: relative;
+    /* 建立定位上下文 */
+    padding: 50px 0;
     background-color: var(--primary-2);
-    /* 根據你的需求調整背景顏色 */
 }
 
 .about-container {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
 }
 
 .about-text {
     flex: 1;
     margin-right: 20px;
+    padding-left: 80px;
+    /* 左侧内边距 */
+    box-sizing: border-box;
+    position: relative;
+    /* 为 z-index 设定定位 */
+    z-index: 1;
+    /* 确保文字内容在滚动文字之上 */
 }
 
 .about-text h2 {
-    margin-left: 80px;
-    /* 調整文字左側距離 */
     font-size: 3.5rem;
     color: var(--primary-1);
-    /* 替換成你的主題顏色 */
     font-weight: 700;
     letter-spacing: 2px;
     text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
 }
 
-.about-text h3 {
-    margin-left: 80px;
-    /* 調整文字左側距離 */
-    font-size: 3.5rem;
-    color: var(--primary-1);
-    /* 替換成你的主題顏色 */
-    font-weight: 700;
-    letter-spacing: 2px;
-    /* text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25); */
-    opacity: 0.2;
-    /* 調整透明度，使字體變淡 */
-}
-
 .about-text p {
-    margin-left: 80px;
-    /* 調整文字左側距離 */
     font-size: 18px;
     line-height: 1.8;
     color: var(--primary-3);
@@ -213,34 +345,117 @@ nav.scrolled ul li a {
 .about-image {
     flex: 1;
     max-width: 500px;
+    margin-right: 80px;
+    /* 右侧内边距 */
+    box-sizing: border-box;
+    position: relative;
+    /* 为 z-index 设定定位 */
+    z-index: 2;
+    /* 确保图片在滚动文字之上 */
 }
-
 
 .about-image img {
     width: 100%;
     height: auto;
     border-radius: 15px;
-    /* 讓圖片的邊角圓潤 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* 給圖片添加陰影效果 */
 }
 
-@media (max-width: 768px) {
+/* 滚动文字样式 */
+.scrolling-text {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 60px;
+    /* 根据字体大小调整高度 */
+    margin: 20px 0;
+    z-index: 0;
+    /* 确保滚动文字在最底层 */
+}
+
+.scrolling-text-content {
+    display: flex;
+    /* 使用 flex 布局 */
+    position: absolute;
+    white-space: nowrap;
+    animation: scroll-text 15s linear infinite;
+    left: 0;
+    /* 从左侧开始 */
+}
+
+.scrolling-text-content span {
+    font-size: 3rem;
+    color: var(--primary-1);
+    font-weight: 700;
+    letter-spacing: 2px;
+    opacity: 0.2;
+    margin-right: 50px;
+}
+
+@keyframes scroll-text {
+    from {
+        transform: translateX(0%);
+        /* 从右侧开始 */
+    }
+
+    to {
+        transform: translateX(-50%);
+        /* 向左移动 */
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
     .about-container {
         flex-direction: column;
-        text-align: center;
+        align-items: center;
+        max-width: 100%;
     }
 
     .about-text {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
         margin-right: 0;
-        margin-bottom: 20px;
+        z-index: 1;
+    }
+
+    .about-text h2,
+    .about-text p {
+        text-align: center;
+    }
+
+    .scrolling-text-content span {
+        font-size: 2rem;
     }
 
     .about-image {
+        width: 100%;
         max-width: 100%;
+        margin: 20px 0;
+        margin-right: 0;
+        z-index: 2;
     }
 }
 
+@media (max-width: 600px) {
+    .about-text h2 {
+        font-size: 2rem;
+    }
+
+    .about-text p {
+        font-size: 16px;
+    }
+
+    .scrolling-text-content span {
+        font-size: 1.8rem;
+    }
+
+    .about-text {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
 
 /* 團隊區 */
 
@@ -258,6 +473,15 @@ nav.scrolled ul li a {
     /* 調整背景圖像的位置，讓它靠右和底部 */
     background-repeat: no-repeat;
     /* 確保背景圖像不會重複 */
+}
+
+.team-container {
+    max-width: 1200px;
+    /* 限制容器最大寬度為1200px，根據需要調整 */
+    margin: 0 auto;
+    /* 讓容器在寬螢幕上居中 */
+    padding: 0 40px;
+    /* 增加左右內邊距，避免內容貼邊 */
 }
 
 /* 團隊標題樣式 */
@@ -566,12 +790,56 @@ nav.scrolled ul li a {
     font-weight: 700;
     text-decoration: none;
     letter-spacing: .2rem;
+    z-index: 1;
+    align-self: center;
+    /* 讓按鈕在桌面版也保持居中 */
 
 }
 
 .service-center .learn-more-button:hover {
     background-color: var(--primary-1);
     color: var(--primary-5);
+}
+
+/* 響應式設計：針對平板 */
+@media screen and (max-width: 1024px) {
+    .service-center .learn-more-button {
+        font-size: 1.1rem;
+        /* 調整按鈕字體大小 */
+        padding: 0.5em 1.5em;
+        /* 減少按鈕內邊距 */
+        margin-top: 15px;
+        /* 減少按鈕上方的間距 */
+        align-self: center;
+        /* 確保按鈕在平板上居中 */
+    }
+}
+
+/* 響應式設計：針對手機 */
+@media screen and (max-width: 768px) {
+    .service-center .learn-more-button {
+        font-size: 1rem;
+        /* 調整按鈕字體大小 */
+        padding: 0.5em 1.2em;
+        /* 減少按鈕的內邊距 */
+        margin-top: 10px;
+        /* 進一步減少按鈕上方的間距 */
+        align-self: center;
+        /* 確保按鈕在手機上居中 */
+    }
+}
+
+/* 更小的手機裝置 */
+@media screen and (max-width: 480px) {
+    .service-center .learn-more-button {
+        font-size: 0.9rem;
+        /* 調整字體大小為更小的裝置 */
+        padding: 0.4em 1em;
+        /* 縮小按鈕的內邊距 */
+        margin-top: 10px;
+        align-self: center;
+        /* 在小裝置上仍保持居中 */
+    }
 }
 
 @media (max-width: 1336px) and (min-width: 768px) {
@@ -731,8 +999,8 @@ nav.scrolled ul li a {
 
     /* 圖片和按鈕大小調整 */
     .dog-image {
-        width: 350px;
-        height: 350px;
+        width: 260px;
+        height: 260px;
     }
 
     .service-center .learn-more-button {
@@ -742,6 +1010,7 @@ nav.scrolled ul li a {
     /* 調整文字在對話框中的位置 */
     .speech-bubble p {
         font-size: 0.9rem;
+        transform: translateY(-50%) translateX(-5px);
     }
 
 }
@@ -874,6 +1143,113 @@ nav.scrolled ul li a {
     .learn-more-button {
         margin-top: 15px;
     }
+
+    /* 確保對話框內文字居中 */
+    .speech-bubble p {
+        font-size: 0.5rem;
+        transform: translateY(-30%) translateX(-20px);
+    }
+}
+
+/* FAQ 區 */
+.faq-section {
+    padding: 50px 20px;
+    background-color: var(--primary-2);
+    text-align: center;
+}
+
+.faq-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.faq-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.faq-left h2 {
+    font-size: 3rem;
+    color: var(--primary-1);
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
+}
+
+.faq-left .learn-more-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 0.5em 2em;
+    text-align: center;
+    border: 0.1875rem solid var(--primary-1);
+    color: var(--primary-1);
+    text-transform: uppercase;
+    border-radius: 99px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: .2rem;
+    transition: background-color 0.3s ease;
+}
+
+.faq-left .learn-more-button:hover {
+    background-color: var(--primary-1);
+    color: var(--primary-5);
+}
+
+.faq-right {
+    display: flex;
+    gap: 30px;
+}
+
+.faq-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.faq-item img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.faq-item p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: var(--primary-3);
+    font-weight: 700;
+}
+
+/* RWD 調整 */
+@media (max-width: 768px) {
+    .faq-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .faq-right {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .faq-item img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .learn-more-button {
+        margin-top: 30px;
+    }
 }
 
 /* Contact Us 區 */
@@ -885,15 +1261,24 @@ nav.scrolled ul li a {
     /* 調整兩側的 padding 為 80px */
     /* 新增 */
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     /* 確保標題和內容左右分開 */
+    justify-content: center;
+    /* 讓內容保持在中間 */
     align-items: center;
-    text-align: left;
+    /* text-align: left; */
     position: relative;
     /* 增加相對定位，讓內容分佈更加靈活 */
 }
 
+/* 內部內容區域：限制最大寬度，讓內容居中 */
 .contact-us .contact-content {
+    max-width: 1200px;
+    /* 設置最大寬度，根據需求調整 */
+    width: 100%;
+    /* 確保內容寬度在小螢幕上能自適應 */
+    margin: 0 auto;
+    /* 讓內容居中對齊 */
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -903,6 +1288,7 @@ nav.scrolled ul li a {
 }
 
 
+/* Contact Us 標題 */
 .contact-us .contact-content h2 {
     color: var(--primary-5);
     font-size: 3.5rem;
@@ -911,7 +1297,7 @@ nav.scrolled ul li a {
     font-weight: 700;
     text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
     /* 保留標題陰影 */
-    flex: 1;
+    /* flex: 1; */
     text-align: right;
     /* 讓文字默認靠右 */
     margin-left: auto;
@@ -927,6 +1313,8 @@ nav.scrolled ul li a {
     text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
     margin-bottom: 20px;
     text-align: left;
+    width: 100%;
+
 }
 
 /* 調整按鈕位置 */
@@ -955,6 +1343,80 @@ nav.scrolled ul li a {
 .contact-us .learn-more-button:hover {
     background-color: var(--primary-1);
     border: var(--primary-1);
+}
+
+/* 響應式設計：針對平板 */
+@media screen and (max-width: 1024px) {
+    .contact-us {
+        padding: 80px 20px;
+        /* 減少內邊距 */
+        flex-direction: column;
+        /* 確保內容在小螢幕上垂直排列 */
+    }
+
+    .contact-content {
+        max-width: 100%;
+        /* 在較小螢幕上內容自適應寬度 */
+        align-items: center;
+        /* 確保內容區在小螢幕上居中對齊 */
+        justify-content: center;
+        /* 讓內容在水平方向上居中 */
+    }
+
+    .contact-us .contact-content h2 {
+        font-size: 3rem;
+        /* 調整標題字體大小 */
+        text-align: center;
+        /* 在平板上將標題置中 */
+        margin-left: 0;
+        /* 移除 margin-left 設置，確保標題置中 */
+        width: 100%;
+        /* 確保標題充滿寬度 */
+    }
+
+    .contact-us .contact-content p {
+        text-align: center;
+        /* 將段落文字居中 */
+    }
+
+    .contact-us .learn-more-button {
+        font-size: 1.1rem;
+        /* 調整按鈕字體大小 */
+        align-self: center;
+        /* 按鈕居中 */
+    }
+}
+
+/* 響應式設計：針對手機 */
+@media screen and (max-width: 768px) {
+    .contact-us {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 20px;
+        /* 減少兩側邊距 */
+    }
+
+    .contact-content {
+        align-items: center;
+    }
+
+    .contact-us .contact-content h2 {
+        font-size: 2.5rem;
+        /* 調整標題字體大小 */
+        text-align: center;
+        margin-left: 0;
+        /* 移除 margin-left */
+    }
+
+    .contact-us .contact-content p {
+        text-align: center;
+    }
+
+    .contact-us .learn-more-button {
+        font-size: 1rem;
+        /* 調整按鈕字體 */
+        align-self: center;
+    }
 }
 
 /* Footer 區 */

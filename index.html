@@ -23,10 +23,16 @@
             <li><a href="#">常見問題</a></li>
             <li><a href="#">聯絡我們</a></li>
         </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
     <!-- banner區 -->
     <div class="hero">
+        <div class="hero-bg"></div> <!-- 新增一個專門用來放背景圖片的div -->
         <div class="hero-text">
             <!-- span class="quote-mark">“</span> -->讓我們聽見牠們的故事<!-- <span class="quote-mark">”</span> -->
         </div>
@@ -38,6 +44,18 @@
         <div class="about-container">
             <div class="about-text">
                 <h2>ABOUT US</h2>
+                <!-- 滚动文本容器 -->
+                <div class="scrolling-text">
+                    <div class="scrolling-text-content">
+                        <!-- 根据需要重复文本，以实现无缝滚动 -->
+                        <span>Just Listen&nbsp;</span>
+                        <span>Just Listen&nbsp;</span>
+                        <span>Just Listen&nbsp;</span>
+                        <span>Just Listen&nbsp;</span>
+                        <!-- 添加更多 <span>，以确保滚动内容足够长 -->
+                    </div>
+
+                </div>
                 <p>
                     成立專業團隊，整合市面上的溝通師們，<br>
                     透過專業的寵物溝通技能，<br>
@@ -45,11 +63,11 @@
                     實現真摯的情感連結，<br>
                     拉近飼主與寵物間的距離。
                 </p>
-                <h3>Just Listen</h3>
             </div>
             <div class="about-image">
                 <img src="./images/aboutus.jpg" alt="Team working image">
             </div>
+        </div>
         </div>
     </section>
 
@@ -273,6 +291,30 @@
             </nav>
         </div>
     </section>
+
+    <!-- FAQ 區 -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <!-- 左側 FAQ 標題與按鈕 -->
+            <div class="faq-left">
+                <h2>FAQ</h2>
+                <a href="#" class="learn-more-button">了解更多</a>
+            </div>
+
+            <!-- 右側 FAQ 圖片與文字 -->
+            <div class="faq-right">
+                <div class="faq-item">
+                    <img src="./images/faq-1.jpg" alt="FAQ 貓圖片">
+                    <p>寵物溝通是什麼？</p>
+                </div>
+                <div class="faq-item">
+                    <img src="./images/faq-2.jpg" alt="FAQ 兔子圖片">
+                    <p>寵物溝通是迷信？</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Us 區 -->
     <section class="contact-us">
         <div class="contact-content">
