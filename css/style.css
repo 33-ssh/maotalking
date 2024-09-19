@@ -1707,3 +1707,24 @@ nav.scrolled {
     margin-top: 20px;
     letter-spacing: .2rem;
 }
+/* 極小螢幕 (390px 以下) 響應式調整 */
+@media (max-width: 390px) {
+    footer {
+        padding: 15px;
+        font-size: 0.8rem;
+    }
+
+    footer .footer-menu {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    footer .footer-address {
+        font-size: 0.7rem;
+    }
+    
+    /* 調整超小螢幕的連結間距 */
+    footer a {
+        margin: 0 5px;
+    }
+}
